@@ -8,3 +8,4 @@
 /HostApp/bin/x86/Debug
 /HostApp/obj
 /HostApp/project.lock.json
+/HostApp/HostApp.csproj.user

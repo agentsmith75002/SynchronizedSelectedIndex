@@ -57,8 +57,8 @@
                         Height="871" >
 
             <FlipViewItem>
-                <local:FlipContent0Control x:Name="menuCtrl" 
-                   TargetIndex="{Binding ElementName=menuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <local:FlipContent0Control x:Name="shortcutCtrl" 
+                   TargetIndex="{Binding ElementName=subMenuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <!-- -->
             </FlipViewItem>
 
@@ -99,7 +99,7 @@
         <Canvas x:Name="bts" Height="122" Canvas.Left="1357" Canvas.Top="86" Width="342"
                  Visibility="{Binding ElementName=flipView, Path=SelectedIndex, Converter={StaticResource VisibilityIndexedConverter}, ConverterParameter='0'}">
 
-            <ListBox x:Name="menuList"
+            <ListBox x:Name="subMenuList"
                      ItemContainerStyle="{StaticResource LvItemStyle}"
                         SelectedIndex="{Binding ElementName=flipView, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   
                    Background="Transparent" Width="342" Height="120" >
@@ -266,7 +266,7 @@
                        FontSize="50" Foreground="Red"/>
         </Canvas>
         <Canvas Canvas.Left="50" Canvas.Top="50">
-            <TextBlock Text="{Binding ElementName=menuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            <TextBlock Text="{Binding ElementName=subMenuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                        FontSize="50" Foreground="Red"/>
         </Canvas>
         <Canvas Canvas.Left="50" Canvas.Top="100">
