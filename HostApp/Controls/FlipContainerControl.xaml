@@ -1,0 +1,277 @@
+﻿<UserControl
+    x:Class="HostApp.Controls.FlipContainerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HostApp.Controls"
+    xmlns:conv="using:HostApp.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    mc:Ignorable="d"
+    Width="1720"
+    Height="871"
+    d:DesignHeight="871"
+    d:DesignWidth="1720">
+
+    <UserControl.Resources>
+        <conv:VisibilityIndexedConverter x:Key="VisibilityIndexedConverter" />
+
+        <Style x:Key="LvItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="border" Background="Transparent">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected" />
+                                    <VisualState x:Name="SelectedUnfocused" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+    </UserControl.Resources>
+    <Canvas
+        x:Name="test_bas"
+        Canvas.Top="120"
+        Width="1720"
+        Height="871"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top"
+        UseLayoutRounding="False">
+        <FlipView
+                        x:Name="flipView"
+                        Width="1720"
+                        Height="871" >
+
+            <FlipViewItem>
+                <local:FlipContent0Control x:Name="menuCtrl" 
+                   TargetIndex="{Binding ElementName=menuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <!-- -->
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent1Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent2Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent3Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent4Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent5Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent6Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent7Control />
+            </FlipViewItem>
+
+            <FlipViewItem>
+                <local:FlipContent8Control />
+            </FlipViewItem>
+        </FlipView>
+
+
+        <Canvas x:Name="bts" Height="122" Canvas.Left="1357" Canvas.Top="86" Width="342"
+                 Visibility="{Binding ElementName=flipView, Path=SelectedIndex, Converter={StaticResource VisibilityIndexedConverter}, ConverterParameter='0'}">
+
+            <ListBox x:Name="menuList"
+                     ItemContainerStyle="{StaticResource LvItemStyle}"
+                        SelectedIndex="{Binding ElementName=flipView, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   
+                   Background="Transparent" Width="342" Height="120" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem Visibility="Collapsed" />
+                <ListBoxItem Height="110" Width="110" x:Name="btn_1">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_1}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_1}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_1Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop1}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_1}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_1}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_1Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop1}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                    <Canvas x:Name="Bt1" Height="98" Width="98">
+                        <Rectangle x:Name="_05_1" Height="98" Canvas.Left="0" Fill="LightBlue" Canvas.Top="0" Width="98"/>
+                        <Rectangle x:Name="_05_1Selected" Height="98" Canvas.Left="0" Fill="DarkBlue" Canvas.Top="0" Width="98"/>
+                        <TextBlock x:Name="ligotop1" Foreground="#FF212222" 
+                                   FontSize="34.46281" FontFamily="Barmeno" LineStackingStrategy="BlockLineHeight" 
+                                   Canvas.Left="4.616" LineHeight="34.46281" TextAlignment="Center" TextWrapping="Wrap" 
+                                   Text="Go to page 1" Canvas.Top="38.753">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleY="0.348" ScaleX="0.35"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Canvas>
+                </ListBoxItem>
+                <ListBoxItem Visibility="Collapsed" x:Name="btn_2">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_2}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_1}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_1Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop1}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_2}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_1}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_1Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop1}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ListBoxItem>
+                <ListBoxItem Visibility="Collapsed" x:Name="btn_3">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_3}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_1}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_1Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop1}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_3}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_1}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_1Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop1}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ListBoxItem>
+                <ListBoxItem Height="110" Width="110"  x:Name="btn_4">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_4}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_2__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_2__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop4}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_4}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_2__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_2__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop4}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                    <Canvas x:Name="Bt2" Height="98" Canvas.Left="107" Width="98">
+                        <Rectangle x:Name="_05_2__" Height="98" Fill="LightCyan" Canvas.Top="0" Width="98"/>
+                        <Rectangle x:Name="_05_2__Selected" Height="98" Fill="DarkCyan" Canvas.Top="0" Width="98"/>
+                        <TextBlock x:Name="ligotop4" Foreground="#FF212222" FontSize="34.46281" FontFamily="Barmeno"
+                                   LineStackingStrategy="BlockLineHeight" Canvas.Left="10.222" LineHeight="34.46281"
+                                   TextAlignment="Center" TextWrapping="Wrap" Canvas.Top="26.547"
+                                   Text="Go to page 4">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleY="0.348" ScaleX="0.35"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Canvas>
+                </ListBoxItem>
+                <ListBoxItem Visibility="Collapsed"  x:Name="btn_5">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_5}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_2__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_2__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop4}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_5}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_2__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_2__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop4}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ListBoxItem>
+                <ListBoxItem Visibility="Collapsed"   x:Name="btn_6">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_6}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_2__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_2__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop4}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_6}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_2__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_2__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop4}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ListBoxItem>
+                <ListBoxItem Height="110" Width="110"    x:Name="btn_7">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_7}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_3__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_3__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop7}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_7}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_3__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_3__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop7}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                    <Canvas x:Name="Bt3" Height="98" Canvas.Left="214" Width="98">
+                        <Rectangle x:Name="_05_3__" Height="98" Fill="LightSteelBlue" Canvas.Top="0" Width="98"/>
+                        <Rectangle x:Name="_05_3__Selected" Height="98" Fill="DarkSlateBlue" Canvas.Top="0" Width="98"/>
+                        <TextBlock x:Name="ligotop7" Foreground="#FF212222" FontSize="34.46281" FontFamily="Barmeno"
+                                   LineStackingStrategy="BlockLineHeight" Canvas.Left="21.148" LineHeight="34.46281"
+                                   TextAlignment="Center" TextWrapping="Wrap"  Canvas.Top="43.628"
+                                   Text="Go to page 7">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform ScaleY="0.348" ScaleX="0.35"/>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Canvas>
+                </ListBoxItem>
+                <ListBoxItem Visibility="Collapsed"    x:Name="btn_8">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_8}" Value="False">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_3__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_3__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="#FF212222" TargetObject="{Binding ElementName=ligotop7}"/>
+                        </Core:DataTriggerBehavior>
+                        <Core:DataTriggerBehavior Binding="{Binding IsSelected, ElementName=btn_8}" Value="True">
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Collapsed" TargetObject="{Binding ElementName=_05_3__}"/>
+                            <Core:ChangePropertyAction PropertyName="Visibility" Value="Visible" TargetObject="{Binding ElementName=_05_3__Selected}"/>
+                            <Core:ChangePropertyAction PropertyName="Foreground" Value="White" TargetObject="{Binding ElementName=ligotop7}"/>
+                        </Core:DataTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </ListBoxItem>
+
+            </ListBox>
+        </Canvas>
+
+        <Canvas Canvas.Left="50" Canvas.Top="0">
+            <TextBlock Text="{Binding ElementName=menuCtrl, Path=TargetIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                       FontSize="50" Foreground="Red"/>
+        </Canvas>
+        <Canvas Canvas.Left="50" Canvas.Top="50">
+            <TextBlock Text="{Binding ElementName=menuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                       FontSize="50" Foreground="Red"/>
+        </Canvas>
+        <Canvas Canvas.Left="50" Canvas.Top="100">
+            <TextBlock Text="{Binding ElementName=flipView, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                       FontSize="50" Foreground="Red"/>
+        </Canvas>
+    </Canvas>
+</UserControl>

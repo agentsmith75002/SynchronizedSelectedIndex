@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/SynchronizedSelectedIndex/v14/.suo
+/.vs/SynchronizedSelectedIndex/v15/.suo
+/HostApp/bin/x64/Debug
+/HostApp/bin/x86/Debug
+/HostApp/obj
+/HostApp/project.lock.json
