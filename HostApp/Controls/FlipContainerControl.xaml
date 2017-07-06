@@ -57,9 +57,8 @@
                         Height="871" >
 
             <FlipViewItem>
-                <local:FlipContent0Control x:Name="shortcutCtrl" 
-                   TargetIndex="{Binding ElementName=subMenuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <!-- -->
+                <local:FlipContent0Control x:Name="shortcutCtrl"  />
+                   <!--TargetIndex="{Binding ElementName=flipView, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"-->
             </FlipViewItem>
 
             <FlipViewItem>
@@ -262,11 +261,11 @@
         </Canvas>
 
         <Canvas Canvas.Left="50" Canvas.Top="0">
-            <TextBlock Text="{Binding ElementName=menuCtrl, Path=TargetIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            <TextBlock x:Name="shortcutOutput" 
                        FontSize="50" Foreground="Red"/>
         </Canvas>
         <Canvas Canvas.Left="50" Canvas.Top="50">
-            <TextBlock Text="{Binding ElementName=subMenuList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+            <TextBlock Text="{Binding ElementName=subMenuList, Path=SelectedIndex}" 
                        FontSize="50" Foreground="Red"/>
         </Canvas>
         <Canvas Canvas.Left="50" Canvas.Top="100">

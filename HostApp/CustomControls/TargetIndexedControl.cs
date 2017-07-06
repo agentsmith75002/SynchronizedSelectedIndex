@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace HostApp.CustomControls
@@ -22,5 +23,17 @@ namespace HostApp.CustomControls
             get { return (int)GetValue(TargetIndexProperty); }
             set { SetValue(TargetIndexProperty, value); }
         }
+
+        public event EventHandler<TargetedIndexEventArgs> TargetedIndexChanged;
+
+        protected void RaiseTargetedIndexChanged(int targetedIndex)
+        {
+            TargetedIndexChanged?.Invoke(this, new TargetedIndexEventArgs { TargetedIndex = targetedIndex });
+        }
+    }
+
+    public class TargetedIndexEventArgs : EventArgs
+    {
+        public int TargetedIndex { get; set; }
     }
 }

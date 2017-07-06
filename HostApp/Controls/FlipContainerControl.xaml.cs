@@ -22,6 +22,15 @@ namespace HostApp.Controls
         public FlipContainerControl()
         {
             this.InitializeComponent();
+            shortcutCtrl.TargetedIndexChanged += ShortcutCtrl_TargetedIndexChanged;
+        }
+
+        private async void ShortcutCtrl_TargetedIndexChanged(object sender, CustomControls.TargetedIndexEventArgs e)
+        {
+            await System.Threading.Tasks.Task.Delay(100);
+            flipView.SelectedIndex = e.TargetedIndex;
+            flipView.UpdateLayout();
+            shortcutOutput.Text = $"Targeted index : {e.TargetedIndex}";
         }
     }
 }

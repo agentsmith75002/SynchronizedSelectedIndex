@@ -23,5 +23,11 @@ namespace HostApp.Controls
         {
             this.InitializeComponent();
         }
+
+        private void Shorcut_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var s = sender as Canvas;
+            RaiseTargetedIndexChanged(Convert.ToInt32(s.Tag));
+        }
     }
 }

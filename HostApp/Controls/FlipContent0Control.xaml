@@ -33,7 +33,6 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <!--TargetIndex="{Binding ElementName=shortcutList, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"-->
     <Canvas x:Name="_full" HorizontalAlignment="Left" Height="871" UseLayoutRounding="False" VerticalAlignment="Top" Width="1720">
         <Canvas.Clip>
             <RectangleGeometry Rect="0,0,1720,871"/>
@@ -46,7 +45,6 @@
                        Canvas.Top="259"  Canvas.Left="408"
                          Background="Transparent"
                      SelectedIndex="{Binding TargetedIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
-                <!-- Tapped="shortcutList_Tapped" -->
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" />
@@ -55,14 +53,13 @@
                 </ListBox.ItemsPanel>
                 <ListBoxItem Visibility="Collapsed"/>
                 <ListBoxItem Margin="20">
-                    <Canvas x:Name="canvas2" Height="276" Canvas.Left="408" Canvas.Top="259" Width="276" RenderTransformOrigin="0.5,0.5">
+                    <Canvas x:Name="canvas2" Height="276" Canvas.Left="408" Canvas.Top="259" Width="276" RenderTransformOrigin="0.5,0.5" Tapped="Shorcut_Tapped" Tag="1">
                         <Canvas.Projection>
                             <PlaneProjection/>
                         </Canvas.Projection>
                         <Canvas.RenderTransform>
                             <CompositeTransform/>
                         </Canvas.RenderTransform>
-                        <!--<Image x:Name="_05_1" Height="276" Source="../images/niveau4_1/05-1.png" Width="276"/>-->
                         <Rectangle x:Name="_05_1" Fill="Beige" Height="276" Width="276"/>
                         <TextBlock x:Name="gotop1" Foreground="#FF2D538D" FontSize="33.47107" FontFamily="Barmeno" 
                                    LineStackingStrategy="BlockLineHeight" Canvas.Left="30.974" LineHeight="33.47107" 
@@ -77,14 +74,13 @@
                 <ListBoxItem Visibility="Collapsed"/>
                 <ListBoxItem Visibility="Collapsed"/>
                 <ListBoxItem Margin="20">
-                    <Canvas x:Name="canvas1" Height="276" Canvas.Left="722" Canvas.Top="259" Width="276" RenderTransformOrigin="0.5,0.5">
+                    <Canvas x:Name="canvas1" Height="276" Canvas.Left="722" Canvas.Top="259" Width="276" RenderTransformOrigin="0.5,0.5" Tapped="Shorcut_Tapped" Tag="4">
                         <Canvas.Projection>
                             <PlaneProjection/>
                         </Canvas.Projection>
                         <Canvas.RenderTransform>
                             <CompositeTransform/>
                         </Canvas.RenderTransform>
-                        <!--<Image x:Name="_05_2" Height="276" Source="../images/niveau4_1/05-2.png" Width="276"/>-->
                         <Rectangle x:Name="_05_2" Height="276" Fill="Beige" Width="276"/>
                         <TextBlock x:Name="gotopage2" Foreground="#FF2D538D" FontSize="33.47107" FontFamily="Barmeno" 
                                    LineStackingStrategy="BlockLineHeight" Canvas.Left="44.45" LineHeight="33.47107" 
@@ -99,14 +95,13 @@
                 <ListBoxItem Visibility="Collapsed"/>
                 <ListBoxItem Visibility="Collapsed"/>
                 <ListBoxItem Margin="20">
-                    <Canvas x:Name="canvas" Height="276"  Width="276" RenderTransformOrigin="0.5,0.5">
+                    <Canvas x:Name="canvas" Height="276"  Width="276" RenderTransformOrigin="0.5,0.5" Tapped="Shorcut_Tapped" Tag="7">
                         <Canvas.Projection>
                             <PlaneProjection/>
                         </Canvas.Projection>
                         <Canvas.RenderTransform>
                             <CompositeTransform/>
                         </Canvas.RenderTransform>
-                        <!--<Image x:Name="_05_3" Height="276" Source="../images/niveau4_1/05-3.png" Width="276"/>-->
                         <Rectangle x:Name="_05_3" Height="276" Fill="Beige" Width="276"/>
                         <TextBlock x:Name="Next_steps" Foreground="#FF2D538D" FontSize="33.47107" FontFamily="Barmeno" 
                                    LineStackingStrategy="BlockLineHeight" Canvas.Left="70.342" LineHeight="33.47107" 
@@ -119,7 +114,6 @@
                     </Canvas>
                 </ListBoxItem>
                 <ListBoxItem Visibility="Collapsed"/>
-                <ListBoxItem Visibility="Collapsed"/>
             </ListBox>
             <TextBlock x:Name="title" Foreground="#FF2993C1" FontSize="60" FontFamily="Barmeno" 
                        LineStackingStrategy="BlockLineHeight" Canvas.Left="408.416" LineHeight="60" 
@@ -131,8 +125,6 @@
             </TextBlock>
         </Canvas>
         <Canvas x:Name="____" Height="453" Canvas.Left="54" Canvas.Top="83" Width="1648">
-            <Image x:Name="__" Height="70" Canvas.Left="1607" Source="../images/niveau4_1/.png" Canvas.Top="383" Width="41"/>
-            <!--<Image x:Name="___" Height="1" Canvas.Left="0" Source="../images/niveau4_1/___.png" Canvas.Top="0" Width="1613"/>-->
             <Rectangle x:Name="___" Height="1" Canvas.Left="0" Fill="Black" Canvas.Top="0" Width="1613"/>
         </Canvas>
     </Canvas>
