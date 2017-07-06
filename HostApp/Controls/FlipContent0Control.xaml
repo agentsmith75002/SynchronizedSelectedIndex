@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:container="using:HostApp.CustomControls"
-    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     d:DesignHeight="871"
     d:DesignWidth="1720"
     mc:Ignorable="d">
@@ -43,8 +42,7 @@
             <ListBox x:Name="shortcutList"
                      ItemContainerStyle="{StaticResource LvItemStyle}"
                        Canvas.Top="259"  Canvas.Left="408"
-                         Background="Transparent"
-                     SelectedIndex="{Binding TargetedIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                         Background="Transparent">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" />
